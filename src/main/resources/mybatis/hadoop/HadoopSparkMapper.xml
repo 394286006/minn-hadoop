@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="p.minn.hadoop.repository.HadoopSparkDao">
+
+<select id="getTotal" resultType="java.lang.Integer">
+		select count(*) from hadoopspark where 1=1
+		<if test="condition.name!='unknown'">
+		  and name like '${condition.name}%'
+		</if>
+	</select>
+	
+	<select id="query" resultType="java.util.HashMap">
+		select id,name,email,qq
+		from
+		hadoopspark where 1=1
+		<if test="condition.name!='unknown'">
+		  and name like '${condition.name}%'
+		</if>
+		
+	</select>
+	
+	
+</mapper>
