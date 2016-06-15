@@ -7,7 +7,7 @@ import org.apache.spark.sql.Row;
 
 import p.minn.common.utils.Page;
 import p.minn.hadoop.entity.HadoopSpark;
-import p.minn.spark.map.MapHadoopSparkSFun;
+import p.minn.spark.map.MapHadoopSparkFun;
 
 /**
  * 
@@ -26,7 +26,7 @@ public class HadoopSparkJDBC extends BaseSparkJDBC<HadoopSpark>{
   public List<HadoopSpark> query(Page page,String sqltxt) {
   
     
-    Function<Row,HadoopSpark> resultrdd=new MapHadoopSparkSFun();
+    Function<Row,HadoopSpark> resultrdd=new MapHadoopSparkFun();
     List<HadoopSpark> list;
     try {
       list = super.pageSql(resultrdd,page, "hadoopspark",sqltxt);

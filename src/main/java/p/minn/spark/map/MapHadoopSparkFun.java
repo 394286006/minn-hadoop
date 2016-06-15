@@ -4,8 +4,13 @@ import org.apache.spark.api.java.function.Function;
 import org.apache.spark.sql.Row;
 
 import p.minn.hadoop.entity.HadoopSpark;
-
-public class MapHadoopSparkSFun implements Function<Row,HadoopSpark> {
+/**
+ * 
+ * @author minn
+ * @QQ:3942986006
+ * @omment 
+ */
+public class MapHadoopSparkFun implements Function<Row,HadoopSpark> {
 
   /**
    * 
