@@ -2,20 +2,49 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>p.minn</groupId>
   <artifactId>minn-hadoop</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>0.0.1</version>
   <name>minn-hadoop</name>
   <description>minn-hadoop</description>
-  
-  <dependencies>
-  <dependency>
+     
+  <dependencies> 
+  <dependency> 
 			<groupId>p.minn</groupId>
 			<artifactId>minn-pojo</artifactId>
 			<version>0.0.1</version>
 		</dependency>
-  <dependency>
-    <groupId>org.apache.hadoop</groupId>
-    <artifactId>hadoop-client</artifactId>
-    <version>2.7.2</version>
+<dependency>
+    <groupId>org.apache.spark</groupId>
+    <artifactId>spark-core_2.10</artifactId> 
+    <version>1.6.1</version>
+</dependency>
+
+<dependency> 
+    <groupId>org.apache.spark</groupId>
+    <artifactId>spark-sql_2.10</artifactId>
+    <version>1.6.1</version>   
+</dependency>  
+    
+<dependency> 
+    <groupId>com.fasterxml.jackson.core</groupId>
+    <artifactId>jackson-core</artifactId>
+    <version>2.4.4</version>   
+</dependency>  
+
+<dependency> 
+    <groupId>com.fasterxml.jackson.core</groupId>
+    <artifactId>jackson-databind</artifactId>
+    <version>2.4.4</version>   
+</dependency>  
+
+<dependency> 
+    <groupId>com.fasterxml.jackson.core</groupId>
+    <artifactId>jackson-annotations</artifactId>
+    <version>2.4.4</version>   
+</dependency> 
+    <dependency>
+    <groupId>org.xerial.snappy</groupId>
+    <artifactId>snappy-java</artifactId>
+    <version>1.1.2.4</version>
 </dependency>
   </dependencies>
 </project>

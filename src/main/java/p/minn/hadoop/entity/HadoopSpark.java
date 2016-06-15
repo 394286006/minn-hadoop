@@ -1,5 +1,6 @@
 package p.minn.hadoop.entity;
 
+import java.io.Serializable;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -14,7 +15,7 @@ import p.minn.privilege.entity.IdEntity;
  * @QQ:3942986006
  *
  */
-public class HadoopSpark extends IdEntity implements DBWritable {
+public class HadoopSpark extends IdEntity implements DBWritable,Serializable{
 
   String name;
 

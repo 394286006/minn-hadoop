@@ -147,6 +147,7 @@ public class HDFSFileUtils {
 	public void import2db(String fileName) throws Exception{
 	   DBConfiguration.configureDB(conf, DRIVER_CLASS, DB_URL,username,password);
 	   Job job = Job.getInstance(conf, "json import2db");
+	   job.setJar("/usr/local/spark/examples/hadoopspark.jar");
 	    job.setMapperClass(Json2dbMapper.class);
 	    job.setInputFormatClass(Json2dbFileInputFormat.class);
 	    job.setOutputFormatClass(DBOutputFormat.class);

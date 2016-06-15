@@ -53,4 +53,26 @@
 		<property name="basePackage" value="p.minn.hadoop.repository" />
 		<property name="sqlSessionFactoryBeanName" value="hdfsSessionFactory"/>
 	</bean>
+	
+	 <bean id="sparkConf" class="org.apache.spark.SparkConf" >
+       <property name="appName" value="${minn.spark.appName}" />
+		<property name="master" value="${minn.spark.master}"/>
+   </bean>
+   
+   <bean id="javaSparkContext" class="org.apache.spark.api.java.JavaSparkContext" >
+       <constructor-arg index="0" ref="sparkConf"></constructor-arg>
+   </bean>
+	
+	<bean id="sqlContext" class="org.apache.spark.sql.SQLContext" >
+       <constructor-arg index="0" ref="javaSparkContext"></constructor-arg>
+   </bean>
+	
+	<bean id="hadoopSparkJDBC" class="p.minn.spark.jdbc.HadoopSparkJDBC">
+	  <constructor-arg index="0" value="${jdbc.hdfs.url}"></constructor-arg>
+	  <constructor-arg index="1" value="${jdbc.hdfs.driver}"></constructor-arg>
+	  <constructor-arg index="2" value="${jdbc.hdfs.username}"></constructor-arg>
+	  <constructor-arg index="3" value="${jdbc.hdfs.password}"></constructor-arg>
+	   <property name="javaSparkContext" ref="javaSparkContext" />
+	   <property name="sqlContext" ref="sqlContext" />
+	</bean>
 </beans>
