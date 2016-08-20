@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
+import org.apache.spark.SparkConf;
 import org.apache.spark.api.java.JavaRDD;
 import org.apache.spark.api.java.JavaSparkContext;
 import org.apache.spark.api.java.function.Function;
@@ -56,7 +57,7 @@ public class BaseSparkJDBC<T> implements Serializable{
   protected  List<T> pageSql(Function<Row,T> rdd,Page page,String targettable,String sqltxt) throws Exception{
     DataFrame jdbcDF =sqlContext.read().jdbc(options.getProperty("url"), targettable, options);
     jdbcDF.registerTempTable(targettable);
-    List<T> list=jdbcDF.sqlContext().sql(sqltxt).limit(page.getTotal()).javaRDD().map(rdd).take(page.getRp());
+    List<T> list=jdbcDF.sqlContext().sql(sqltxt).javaRDD().map(rdd).collect();
     return list;
   }
 
