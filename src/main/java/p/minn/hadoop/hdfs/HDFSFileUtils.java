@@ -33,7 +33,6 @@ import p.minn.hadoop.db.Json2dbFileInputFormat;
 import p.minn.hadoop.db.Json2dbMapper;
 import p.minn.hadoop.db.Json2dbReducer;
 import p.minn.hadoop.entity.HadoopSpark;
-import p.minn.hadoopspark.HadoopSparkJson;
 
 /**
  * 
