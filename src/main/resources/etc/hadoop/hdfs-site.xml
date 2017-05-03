@@ -17,7 +17,7 @@
 <!-- Put site-specific property overrides in this file. -->
 
 <configuration>
-<!-- 伪分布式配置 -->
+
 <property>
              <name>dfs.replication</name>
              <value>1</value>

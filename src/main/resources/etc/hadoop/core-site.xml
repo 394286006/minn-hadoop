@@ -17,9 +17,7 @@
 <!-- Put site-specific property overrides in this file. -->
 
 <configuration>
-<!--
-    伪分布式配置
--->
+
 <property>
              <name>hadoop.tmp.dir</name>
              <value>hdfs://namenode1:9000:/var/hadoop-3.0/tmp</value>
