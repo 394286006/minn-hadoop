@@ -1,5 +1,6 @@
 package p.minn.hadoop.hdfs;
 
+import java.io.DataInputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -166,12 +167,22 @@ public class HDFSFileUtils {
 
   public String readFileContent(String fileName) throws Exception {
     // TODO Auto-generated method stub
-    Path path=new Path(input+fileName);
-    FSDataInputStream in=hdfs.open(path);
+     byte[] data=readFileData(fileName);
+    return new String(data);
+  }
+  public byte[] readFileData(String fileName) throws Exception {
+    // TODO Auto-generated method stub
+    DataInputStream in=readDataInputStream(fileName);
      byte[] data=new byte[in.available()];
     IOUtils.readFully(in, data, 0, in.available());
-    
-    return new String(data);
+    return data;
+  }
+  
+  public DataInputStream readDataInputStream(String fileName) throws Exception {
+    // TODO Auto-generated method stub
+    Path path=new Path(input+fileName);
+    FSDataInputStream in=hdfs.open(path);
+    return in;
   }
 	
 	

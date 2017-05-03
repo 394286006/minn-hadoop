@@ -22,7 +22,7 @@
 -->
 <property>
              <name>hadoop.tmp.dir</name>
-             <value>file:/usr/local/hadoop/tmp</value>
+             <value>hdfs://namenode1:9000:/var/hadoop-3.0/tmp</value>
              <description>Abase for other temporary directories.</description>
         </property>
         <property>

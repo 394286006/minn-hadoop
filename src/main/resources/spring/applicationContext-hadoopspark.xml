@@ -16,6 +16,7 @@
  <description>hadoop spark  config</description>
  
   <context:property-placeholder ignore-unresolvable="true" location="classpath*:/spring/application.hadoopspark.properties" />
+ <context:component-scan base-package="p.minn.hadoop" />
   <bean id="hdfsFileUtils" class="p.minn.hadoop.hdfs.HDFSFileUtils">
         <constructor-arg value="hdfs://${minn.hdfs.defaultFS}"/>
 		<property name="input" value="${minn.hdfs.input}"/>
