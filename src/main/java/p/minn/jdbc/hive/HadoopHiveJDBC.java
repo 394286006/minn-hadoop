@@ -1,4 +1,4 @@
-package p.minn.hive.jdbc;
+package p.minn.jdbc.hive;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -8,7 +8,7 @@ import org.apache.spark.api.java.function.Function;
 
 import p.minn.common.utils.Page;
 import p.minn.hadoop.entity.HadoopSpark;
-import p.minn.spark.map.MapHadoopHiveFun;
+import p.minn.jdbc.map.MapHadoopHiveFun;
 
 /**
  * 

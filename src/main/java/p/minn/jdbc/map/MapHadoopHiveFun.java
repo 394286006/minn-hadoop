@@ -1,4 +1,4 @@
-package p.minn.spark.map;
+package p.minn.jdbc.map;
 
 import java.sql.ResultSet;
 

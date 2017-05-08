@@ -1,4 +1,4 @@
-package p.minn.spark.jdbc;
+package p.minn.jdbc.spark;
 
 import java.util.List;
 
@@ -7,7 +7,7 @@ import org.apache.spark.sql.Row;
 
 import p.minn.common.utils.Page;
 import p.minn.hadoop.entity.HadoopSpark;
-import p.minn.spark.map.MapHadoopSparkFun;
+import p.minn.jdbc.map.MapHadoopSparkFun;
 
 /**
  * 

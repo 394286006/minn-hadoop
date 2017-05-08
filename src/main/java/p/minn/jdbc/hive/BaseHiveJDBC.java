@@ -1,4 +1,4 @@
-package p.minn.hive.jdbc;
+package p.minn.jdbc.hive;
 
 import java.io.Serializable;
 import java.sql.Connection;

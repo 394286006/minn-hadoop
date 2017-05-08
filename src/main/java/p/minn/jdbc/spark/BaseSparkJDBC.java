@@ -1,4 +1,4 @@
-package p.minn.spark.jdbc;
+package p.minn.jdbc.spark;
 
 import java.io.Serializable;
 import java.util.ArrayList;

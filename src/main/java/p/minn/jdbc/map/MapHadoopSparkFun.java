@@ -1,4 +1,4 @@
-package p.minn.spark.map;
+package p.minn.jdbc.map;
 
 import org.apache.spark.api.java.function.Function;
 import org.apache.spark.sql.Row;
