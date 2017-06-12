@@ -69,7 +69,7 @@
 		<property name="sqlSessionFactoryBeanName" value="hdfsSessionFactory"/>
 	</bean>
 
-	<bean id="hadoopHiveJDBC" class="p.minn.hive.jdbc.HadoopHiveJDBC">
+	<bean id="hadoopHiveJDBC" class="p.minn.jdbc.hive.HadoopHiveJDBC">
 	   <property name="hivedataSource" ref="hivedataSource" />
 	</bean>
 
