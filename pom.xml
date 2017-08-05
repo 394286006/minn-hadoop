@@ -8,7 +8,9 @@
 	<packaging>jar</packaging>
 	<name>minn-hadoop</name>
 	<description>minn-hadoop</description>
-
+  <properties>
+     <ignite.version>2.0.0</ignite.version>
+  </properties>
 	<dependencies>
 		<dependency>
 			<groupId>p.minn</groupId>
@@ -94,5 +96,32 @@
 			<scope>system</scope>
 			<systemPath>/Library/Java/JavaVirtualMachines/jdk1.7.0_75.jdk/Contents/Home/lib/tools.jar</systemPath>
 		</dependency>
+<dependency>
+    <groupId>org.apache.ignite</groupId>
+    <artifactId>ignite-core</artifactId>
+    <version>${ignite.version}</version>
+	</dependency>
+	<dependency>
+	    <groupId>org.apache.ignite</groupId>
+	    <artifactId>ignite-spring</artifactId>
+	    <version>${ignite.version}</version>
+	</dependency>
+	<dependency>
+    <groupId>org.apache.ignite</groupId>
+    <artifactId>ignite-log4j</artifactId>
+    <version>${ignite.version}</version>
+	</dependency>
+	<dependency>
+	    <groupId>org.apache.ignite</groupId>
+	    <artifactId>ignite-indexing</artifactId>
+	    <version>${ignite.version}</version>
+	</dependency>
+<dependency>
+    <groupId>org.apache.ignite</groupId>
+    <artifactId>ignite-hadoop</artifactId>
+    <version>${ignite.version}</version>
+</dependency>
+
+		
 	</dependencies>
 </project>

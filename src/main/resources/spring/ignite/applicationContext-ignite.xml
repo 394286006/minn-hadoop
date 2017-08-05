@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:cache="http://www.springframework.org/schema/cache"
+	xsi:schemaLocation="
+	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
+	http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans.xsd      
+	http://www.springframework.org/schema/tx
+    http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+	http://www.springframework.org/schema/aop
+	http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+	http://www.springframework.org/schema/cache
+    http://www.springframework.org/schema/cache/spring-cache.xsd">
+    <!-- author:minn QQ:394286006 -->
+     <context:property-placeholder ignore-unresolvable="true" location="classpath*:/spring/application.hadoopspark.properties" />
+         <cache:annotation-driven/>
+	<bean id="cacheManager" class="org.apache.ignite.cache.spring.SpringCacheManager">
+        <property name="Configuration" ref="igniteConfiguration"/>
+    </bean>
+    
+    <bean id="igfsFileUtils" class="p.minn.ignite.IGFSFileUtils">
+        <constructor-arg ref="igniteConfiguration"/>  
+        <constructor-arg value="${minn.igfs.fileconfigname}"/>
+        <property name="prefix" value="${minn.igfs.prefix}"/>
+     </bean>
+	<bean id="igniteConfiguration" class="org.apache.ignite.configuration.IgniteConfiguration">
+         <!-- Set to true to enable distributed class loading for examples, default is false. -->
+        <property name="peerClassLoadingEnabled" value="true"/>
+
+        <property name="cacheConfiguration">
+            <list>
+                <bean class="org.apache.ignite.configuration.CacheConfiguration">
+                    <property name="name" value="default"/>
+                    <property name="atomicityMode" value="ATOMIC"/>
+                    <property name="backups" value="1"/>
+                </bean>
+            </list>
+        </property>
+		<property name="fileSystemConfiguration">
+            <list>
+                <bean class="org.apache.ignite.configuration.FileSystemConfiguration">
+                    <property name="name" value="${minn.igfs.fileconfigname}"/>
+                    <property name="defaultMode" value="${minn.igfs.defaultMode}" /> 
+                    <property name="secondaryFileSystem">
+					    <bean class="org.apache.ignite.hadoop.fs.IgniteHadoopIgfsSecondaryFileSystem">
+					      <constructor-arg value="hdfs://${minn.hdfs.defaultFS}/"/>                            
+					    </bean>
+					 </property>
+                </bean>
+            </list>
+        </property>
+        <property name="discoverySpi">
+            <bean class="org.apache.ignite.spi.discovery.tcp.TcpDiscoverySpi">
+                <property name="ipFinder">
+                    <bean class="org.apache.ignite.spi.discovery.tcp.ipfinder.multicast.TcpDiscoveryMulticastIpFinder">
+                        <property name="addresses">
+                            <list>
+                                <value>minn:47500..47503</value>
+                            </list>
+                        </property>
+                    </bean>
+                </property>
+            </bean>
+        </property>
+    </bean>
+
+</beans>
