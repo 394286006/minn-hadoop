@@ -8,9 +8,10 @@
 	<packaging>jar</packaging>
 	<name>minn-hadoop</name>
 	<description>minn-hadoop</description>
-  <properties>
-     <ignite.version>2.0.0</ignite.version>
-  </properties>
+	<properties>
+		<ignite.version>2.0.0</ignite.version>
+		<solr.version>4.10.4</solr.version>
+	</properties>
 	<dependencies>
 		<dependency>
 			<groupId>p.minn</groupId>
@@ -69,7 +70,7 @@
 				<exclusion>
 					<groupId>org.spark-project.hive</groupId>
 					<artifactId>hive-exec</artifactId>
-					<!--  version>1.2.1.spark</version-->
+					<!-- version>1.2.1.spark</version -->
 				</exclusion>
 				<exclusion>
 					<groupId>tomcat</groupId>
@@ -96,32 +97,36 @@
 			<scope>system</scope>
 			<systemPath>/Library/Java/JavaVirtualMachines/jdk1.7.0_75.jdk/Contents/Home/lib/tools.jar</systemPath>
 		</dependency>
-<dependency>
-    <groupId>org.apache.ignite</groupId>
-    <artifactId>ignite-core</artifactId>
-    <version>${ignite.version}</version>
-	</dependency>
-	<dependency>
-	    <groupId>org.apache.ignite</groupId>
-	    <artifactId>ignite-spring</artifactId>
-	    <version>${ignite.version}</version>
-	</dependency>
-	<dependency>
-    <groupId>org.apache.ignite</groupId>
-    <artifactId>ignite-log4j</artifactId>
-    <version>${ignite.version}</version>
-	</dependency>
-	<dependency>
-	    <groupId>org.apache.ignite</groupId>
-	    <artifactId>ignite-indexing</artifactId>
-	    <version>${ignite.version}</version>
-	</dependency>
-<dependency>
-    <groupId>org.apache.ignite</groupId>
-    <artifactId>ignite-hadoop</artifactId>
-    <version>${ignite.version}</version>
-</dependency>
+		<dependency>
+			<groupId>org.apache.ignite</groupId>
+			<artifactId>ignite-core</artifactId>
+			<version>${ignite.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.ignite</groupId>
+			<artifactId>ignite-spring</artifactId>
+			<version>${ignite.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.ignite</groupId>
+			<artifactId>ignite-log4j</artifactId>
+			<version>${ignite.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.ignite</groupId>
+			<artifactId>ignite-indexing</artifactId>
+			<version>${ignite.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.ignite</groupId>
+			<artifactId>ignite-hadoop</artifactId>
+			<version>${ignite.version}</version>
+		</dependency>
 
-		
+		<dependency>
+			<groupId>org.apache.solr</groupId>
+			<artifactId>solr-core</artifactId>
+			<version>${solr.version}</version>
+		</dependency>
 	</dependencies>
 </project>

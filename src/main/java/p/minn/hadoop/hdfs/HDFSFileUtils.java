@@ -28,6 +28,7 @@ import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Job;
 import org.apache.hadoop.mapreduce.lib.db.DBConfiguration;
 import org.apache.hadoop.mapreduce.lib.db.DBOutputFormat;
+import org.apache.solr.store.hdfs.HdfsDirectory;
 
 import p.minn.fs.FSFileOperation;
 import p.minn.hadoop.db.Json2dbFileInputFormat;
@@ -146,6 +147,10 @@ public class HDFSFileUtils extends FSFileOperation {
     InputStream in = hdfs.open(path);
     return in;
   }
-
+ 
+  public HdfsDirectory getHdfsDirectory(String filename) throws IOException {
+	  Path dst = new Path(this.getInput() + "/" + filename);
+	  return new HdfsDirectory(dst, conf);
+  }
 
 }
