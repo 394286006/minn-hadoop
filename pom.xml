@@ -9,7 +9,7 @@
 	<name>minn-hadoop</name>
 	<description>minn-hadoop</description>
 	<properties>
-		<ignite.version>2.0.0</ignite.version>
+		<ignite.version>2.8.1</ignite.version>
 		<solr.version>4.10.4</solr.version>
 	</properties>
 	<dependencies>
